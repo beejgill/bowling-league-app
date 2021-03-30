@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Bowler List";
+}
+
+@model IndexViewModel
+
+<div class="d-flex justify-content-center">
+    <h2>@Model.TeamName</h2>
+</div>
+
+<div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Middle Initial</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+
+        @foreach (var x in Model.Bowlers)
+        {
+            <tbody>
+                <td>@x.BowlerFirstName</td>
+                <td>@x.BowlerMiddleInit</td>
+                <td>@x.BowlerLastName</td>
+                <td>@x.BowlerAddress</td>
+                <td>@x.BowlerCity</td>
+                <td>@x.BowlerState</td>
+                <td>@x.BowlerZip</td>
+                <td>@x.BowlerPhoneNumber</td>
+            </tbody>
+        }
+    </table>
+</div>
+
+<div class="d-flex justify-content-center">
+    <div page-info="@Model.PageNumberingInfo" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark"
+            page-class-selected="btn-primary" page-url-teamname="@Model.TeamName">
+    </div>
+</div>
